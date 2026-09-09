@@ -15,6 +15,89 @@ Inclusion">
  		<title>SAFARI Project</title>
  		<!-- External Style Sheet -->
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
+
+		<!--
+			Fixes/additions added on top of style.css:
+			1. Navbar spans the full row (flex, full width).
+			2. Smooth scrolling so menu links glide to the right section.
+			3. Small supplementary styles for the Team captions and
+			   Publications list, since style.css doesn't define these yet.
+			Move any of this into css/style.css whenever you're ready.
+		-->
+		<style>
+			html {
+				scroll-behavior: smooth;
+			}
+
+			.navbar {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				width: 100%;
+			}
+
+			.navbar .menu {
+				width: 100%;
+			}
+
+			.navbar .menu ul {
+				display: flex;
+				justify-content: flex-end;
+				width: 100%;
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+
+			/* offset so anchored sections don't hide under a fixed navbar, if you add one later */
+			section[id], .container[id] {
+				scroll-margin-top: 80px;
+			}
+
+			.funders {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-wrap: wrap;
+				gap: 24px;
+				margin-top: 30px;
+			}
+
+			.team-box {
+				text-align: center;
+			}
+
+			.team-box h4 {
+				margin: 12px 0 2px;
+			}
+
+			.team-box p {
+				margin: 0;
+				font-size: 0.9em;
+				opacity: 0.75;
+			}
+
+			.publication-list {
+				list-style: none;
+				padding: 0;
+				margin: 30px 0 0;
+			}
+
+			.publication-list li {
+				padding: 16px 0;
+				border-bottom: 1px solid #e0e0e0;
+			}
+
+			.publication-list .pub-title {
+				font-weight: 600;
+				display: block;
+			}
+
+			.publication-list .pub-meta {
+				font-size: 0.9em;
+				opacity: 0.75;
+			}
+		</style>
  	</head>
 
 <body>
@@ -29,9 +112,11 @@ Inclusion">
 					</div> -->
 					<div class="menu">
 						<ul>
-							<li class="active"><a href="#">Home</a></li>
-							<li><a href="#">About</a></li>
-							<li><a href="#">Contact</a></li>
+							<li class="active"><a href="#about-safari">About SAFARI</a></li>
+							<li><a href="#news">Latest News &amp; Progress</a></li>
+							<li><a href="#team">Team</a></li>
+							<li><a href="#publications">Publications</a></li>
+							<li><a href="#contact">Contact</a></li>
 						</ul>
 					</div>
 				</div>
@@ -45,7 +130,7 @@ Inclusion">
 accessible" for BLV users
 					</p>
 					<div class="button">
-						<a href="#">Get Started</a>
+						<a href="#about-safari">Get Started</a>
 					</div>
 				</div>
 
@@ -53,10 +138,25 @@ accessible" for BLV users
 		</div>
 	</div>
 
-	<!-- Client Section -->
+	<!-- About SAFARI Section -->
 
-	<div class="container">
-		<div class="client">
+	<div class="container" id="about-safari">
+		<div class="about">
+			<div class="about-text">
+				<h3>About SAFARI</h3>
+				<hr>
+				<p>
+					[Placeholder] Describe here what SAFARI does in more depth: the auditing methodology, what "functionally
+					accessible" means for a figure, and who benefits — BLV (blind and low vision) researchers and readers.
+					Replace this paragraph with your project summary.
+				</p>
+			</div>
+			<div class="about-img">
+				<img src="images/img-6.png">
+			</div>
+		</div>
+
+		<div class="funders">
 			<div class="client-img">
 				<img src="images/client/4.png">
 			</div>
@@ -73,103 +173,111 @@ accessible" for BLV users
 				<img src="images/client/6.png">
 			</div>
 		</div>
+		<hr class="about-line">
 	</div>
 
-	<!-- Services Section -->
+	<!-- Latest News & Progress Section -->
 
 	<div class="full-container">
-		<div class="services">
+		<div class="services" id="news">
 			<div class="container">
 				<div class="service-box">
 					<img src="images/img-3.png">
-					<h3>Service-1</h3>
+					<h3>[News item 1]</h3>
 					<p>
-						Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni vitae, accusamus minus atque. Totam, ipsa?
+						[Placeholder] Short update on a milestone, publication, or event. Add the date and a one- or two-line summary.
 					</p>
 				</div>
 
 				<div class="service-box">
 					<img src="images/img-4.png">
-					<h3>Service-2</h3>
+					<h3>[News item 2]</h3>
 					<p>
-						Lorem ipsum dolor, sit amet consectetur adipisicing, elit. Distinctio pariatur ipsam sed esse, quidem consequuntur.
+						[Placeholder] Short update on a milestone, publication, or event. Add the date and a one- or two-line summary.
 					</p>
 				</div>
 
 				<div class="service-box">
 					<img src="images/img-5.png">
-					<h3>Service-3</h3>
+					<h3>[News item 3]</h3>
 					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing, elit. Eveniet eaque eos maxime repellendus iste possimus.
+						[Placeholder] Short update on a milestone, publication, or event. Add the date and a one- or two-line summary.
 					</p>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<!-- About us Section -->
-	
-	<div class="container">
-		<div class="about">
-			<div class="about-text">
-				<h3>About us</h3>
-				<hr>
-				<p>
-					It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. <br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla non fermentum diam. Integer fringilla elementum condimentum.<br>Fusce egestas at lorem ut interdum. Nulla facilisi. Nunc consectetur neque ut viverra lobortis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.<br>Duis id odio sollicitudin, pretium dolor et, pharetra augue.<br>
-					Vivamus ac lorem a ligula fringilla tempus eu eget orci.<br>
-					Mauris id sapien varius, luctus dolor vel, ornare tortor.<br>
-					Nulla vel tellus sit amet purus suscipit pharetra ut ac lectus.
-				</p>
-			</div>
-			<div class="about-img">
-				<img src="images/img-6.png">
-			</div>
-		</div>
-		<hr class="about-line">
-	</div>
-
-	<!-- Portfolio Section -->
+	<!-- Team Section -->
 
 	<div class="full-container">
-		<div class="portfolio">
+		<div class="portfolio" id="team">
 			<div class="container">
 				<div class="portfolio-shadow-box">
-					<div class="portfolio-box">
+					<div class="portfolio-box team-box">
 						<img src="images/work/work-1.jpg">
+						<h4>[Name]</h4>
+						<p>[Role / affiliation]</p>
 					</div>
-					<div class="portfolio-box">
+					<div class="portfolio-box team-box">
 						<img src="images/work/work-2.jpg">
+						<h4>[Name]</h4>
+						<p>[Role / affiliation]</p>
 					</div>
-					<div class="portfolio-box">
+					<div class="portfolio-box team-box">
 						<img src="images/work/work-3.jpg">
+						<h4>[Name]</h4>
+						<p>[Role / affiliation]</p>
 					</div>
-					<div class="portfolio-box">
+					<div class="portfolio-box team-box">
 						<img src="images/work/work-4.jpg">
+						<h4>[Name]</h4>
+						<p>[Role / affiliation]</p>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<!-- Testimonial Section -->
+	<!-- Publications Section -->
 
-	<div class="container">
-		<div class="testimonial">
-			<div class="left-arrow">
-				<a href=""><img src="images/img-9.png" width="20px"></a>
-			</div>
-			<div class="testi-text">
-				<h3>John Deo</h3>
-				<p>This is testimonial text</p>
-			</div>
-			<div class="testi-img">
-				<a href=""><img src="images/img-8.png"></a>
-				<div class="circle"></div>
-			</div>
-			<div class="right-arrow">
-				<a href=""><img src="images/img-10.png" width="20px"></a>
+	<div class="container" id="publications">
+		<div class="about">
+			<div class="about-text" style="width: 100%;">
+				<h3>Publications</h3>
+				<hr>
+				<ul class="publication-list">
+					<li>
+						<span class="pub-title">[Publication title 1]</span>
+						<span class="pub-meta">[Authors — Venue, Year]</span>
+					</li>
+					<li>
+						<span class="pub-title">[Publication title 2]</span>
+						<span class="pub-meta">[Authors — Venue, Year]</span>
+					</li>
+					<li>
+						<span class="pub-title">[Publication title 3]</span>
+						<span class="pub-meta">[Authors — Venue, Year]</span>
+					</li>
+				</ul>
 			</div>
 		</div>
+		<hr class="about-line">
+	</div>
+
+	<!-- Contact Section -->
+
+	<div class="container" id="contact">
+		<div class="about">
+			<div class="about-text">
+				<h3>Contact</h3>
+				<hr>
+				<p>
+					[Placeholder] Replace with your real contact details — email, a contact form, or social/lab links.
+				</p>
+			</div>
+		</div>
+		<hr class="about-line">
 	</div>
 
 	<!-- Footer Section -->
