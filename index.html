@@ -17,11 +17,13 @@ Inclusion">
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
 
 		<!--
-			Fixes/additions added on top of style.css:
-			1. Navbar spans the full row (flex, full width).
+			Additions on top of style.css, added to follow the structure of
+			https://project-inscim.github.io/ :
+			1. Navbar spans the full row (flex, full width) + logo slot.
 			2. Smooth scrolling so menu links glide to the right section.
-			3. Small supplementary styles for the Team captions and
-			   Publications list, since style.css doesn't define these yet.
+			3. Styles for the long-form About sub-sections, the News feed,
+			   the Team grid (grouped by role), the Publications list
+			   (grouped by year), the Contact list, and footer partner logos.
 			Move any of this into css/style.css whenever you're ready.
 		-->
 		<style>
@@ -34,6 +36,10 @@ Inclusion">
 				align-items: center;
 				justify-content: space-between;
 				width: 100%;
+			}
+
+			.navbar .logo img {
+				display: block;
 			}
 
 			.navbar .menu {
@@ -60,32 +66,122 @@ Inclusion">
 				align-items: center;
 				flex-wrap: wrap;
 				gap: 24px;
-				margin-top: 30px;
+				margin: 20px 0 30px;
 			}
 
-			.team-box {
+			/* About SAFARI: long-form sub-sections */
+			.about-full {
+				max-width: 900px;
+				margin: 0 auto;
+			}
+
+			.about-full h4 {
+				margin-top: 28px;
+			}
+
+			.about-full p {
+				line-height: 1.6;
+			}
+
+			.partner-list {
+				list-style: none;
+				padding: 0;
+				margin: 10px 0 0;
+			}
+
+			.partner-list li {
+				padding: 4px 0;
+			}
+
+			/* News & Progress feed */
+			.news-feed {
+				max-width: 900px;
+				margin: 0 auto;
+			}
+
+			.news-entry {
+				display: flex;
+				gap: 24px;
+				align-items: flex-start;
+				padding: 24px 0;
+				border-bottom: 1px solid #e0e0e0;
+			}
+
+			.news-entry img {
+				width: 160px;
+				height: 110px;
+				object-fit: cover;
+				flex-shrink: 0;
+			}
+
+			.news-entry h4 {
+				margin: 0 0 8px;
+			}
+
+			.news-entry p {
+				margin: 0;
+				line-height: 1.5;
+			}
+
+			/* Team, grouped by role */
+			.team-group {
+				margin-bottom: 30px;
+			}
+
+			.team-group h4 {
+				text-align: center;
+				margin-bottom: 16px;
+			}
+
+			.team-grid {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				gap: 24px;
+			}
+
+			.team-card {
+				width: 160px;
 				text-align: center;
 			}
 
-			.team-box h4 {
-				margin: 12px 0 2px;
+			.team-card img {
+				width: 120px;
+				height: 120px;
+				object-fit: cover;
+				border-radius: 50%;
 			}
 
-			.team-box p {
+			.team-card h5 {
+				margin: 10px 0 2px;
+			}
+
+			.team-card p {
 				margin: 0;
-				font-size: 0.9em;
+				font-size: 0.85em;
 				opacity: 0.75;
+			}
+
+			/* Publications, grouped by year */
+			.publications-wrap {
+				max-width: 900px;
+				margin: 0 auto;
+			}
+
+			.publications-wrap h4 {
+				margin-top: 30px;
 			}
 
 			.publication-list {
 				list-style: none;
 				padding: 0;
-				margin: 30px 0 0;
+				margin: 10px 0 0;
 			}
 
 			.publication-list li {
-				padding: 16px 0;
+				padding: 14px 0;
 				border-bottom: 1px solid #e0e0e0;
+				line-height: 1.5;
 			}
 
 			.publication-list .pub-title {
@@ -97,6 +193,32 @@ Inclusion">
 				font-size: 0.9em;
 				opacity: 0.75;
 			}
+
+			/* Contact */
+			.contact-list {
+				list-style: none;
+				padding: 0;
+				margin: 16px 0 0;
+			}
+
+			.contact-list li {
+				padding: 6px 0;
+			}
+
+			/* Footer partner logos */
+			.partner-logos {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-wrap: wrap;
+				gap: 28px;
+				padding: 30px 0;
+			}
+
+			.partner-logos img {
+				height: 45px;
+				width: auto;
+			}
 		</style>
  	</head>
 
@@ -105,11 +227,11 @@ Inclusion">
 	<div class="full-container">
 		<div class="showcase">
 			<div class="container">
-				
+
 				<div class="navbar">
-					<!-- <div class="logo">
-						<img src="images/logo1.png" alt="logo" width="45px">
-					</div> -->
+					<div class="logo">
+						<a href="#top"><img src="images/logo1.png" alt="SAFARI logo" width="45px"></a>
+					</div>
 					<div class="menu">
 						<ul>
 							<li class="active"><a href="#about-safari">About SAFARI</a></li>
@@ -121,13 +243,18 @@ Inclusion">
 					</div>
 				</div>
 
-				<div class="welcome">
+				<div class="welcome" id="top">
 					<h1>Semantic Audit for Figures and Accessible Research Inclusion</h1>
 					<h2> SAFARI Project Official Home Page </h2>
 					<hr>
 					<p>
-						SAFARI Project is funded by STARS EU. SAFARI develops an auditing system that determines if a figure is "functionally
-accessible" for BLV users
+						SAFARI Project is funded by <a href="#">STARS EU, [grant reference]</a> ([start year]-[end year]).
+					</p>
+					<div class="about-img">
+						<img src="images/img-6.png">
+					</div>
+					<p style="text-align:center; font-size:0.85em; opacity:0.7;">
+						[Caption for the hero image, e.g. how it was produced]
 					</p>
 					<div class="button">
 						<a href="#about-safari">Get Started</a>
@@ -141,19 +268,46 @@ accessible" for BLV users
 	<!-- About SAFARI Section -->
 
 	<div class="container" id="about-safari">
-		<div class="about">
-			<div class="about-text">
-				<h3>About SAFARI</h3>
-				<hr>
-				<p>
-					[Placeholder] Describe here what SAFARI does in more depth: the auditing methodology, what "functionally
-					accessible" means for a figure, and who benefits — BLV (blind and low vision) researchers and readers.
-					Replace this paragraph with your project summary.
-				</p>
-			</div>
-			<div class="about-img">
-				<img src="images/img-6.png">
-			</div>
+		<div class="about-full">
+			<h3>About SAFARI</h3>
+			<hr>
+			<p>
+				[Placeholder] Opening paragraph — the broader context and motivation for the project: why figure
+				accessibility for BLV (blind and low vision) users matters now, and what gap SAFARI addresses.
+			</p>
+
+			<h4>Objectives</h4>
+			<p>
+				[Placeholder] The project's core objective(s): what SAFARI sets out to build (e.g. the auditing
+				system, the criteria for "functional accessibility"), and the disciplines or communities involved.
+			</p>
+
+			<h4>Methods and technologies used</h4>
+			<p>
+				[Placeholder] The methodology and tools SAFARI relies on — e.g. figure/image analysis, accessibility
+				standards, annotation schemes, machine learning models, evaluation metrics.
+			</p>
+
+			<h4>Main results</h4>
+			<p>
+				[Placeholder] Key outcomes so far, grouped if useful (e.g. theoretical results, practical
+				results/datasets or tools released, societal contributions).
+			</p>
+
+			<h4>Perspectives</h4>
+			<p>
+				[Placeholder] Planned next steps and future directions for the project.
+			</p>
+
+			<h4>Funding</h4>
+			<p><a href="#">[Funding body and grant reference]</a></p>
+
+			<h4>Partners</h4>
+			<ul class="partner-list">
+				<li><a href="#">[Partner institution 1]</a></li>
+				<li><a href="#">[Partner institution 2]</a></li>
+				<li><a href="#">[Partner institution 3]</a></li>
+			</ul>
 		</div>
 
 		<div class="funders">
@@ -178,89 +332,136 @@ accessible" for BLV users
 
 	<!-- Latest News & Progress Section -->
 
-	<div class="full-container">
-		<div class="services" id="news">
-			<div class="container">
-				<div class="service-box">
-					<img src="images/img-3.png">
-					<h3>[News item 1]</h3>
+	<div class="container" id="news">
+		<div class="news-feed">
+			<h3 style="text-align:center;">Latest News &amp; Progress</h3>
+			<hr>
+
+			<div class="news-entry">
+				<img src="images/img-3.png">
+				<div>
+					<h4>[News item title 1]</h4>
 					<p>
-						[Placeholder] Short update on a milestone, publication, or event. Add the date and a one- or two-line summary.
+						[Placeholder] Short update on a milestone, presentation, publication, or event — what happened,
+						where, and who was involved. Add the date.
 					</p>
 				</div>
+			</div>
 
-				<div class="service-box">
-					<img src="images/img-4.png">
-					<h3>[News item 2]</h3>
+			<div class="news-entry">
+				<img src="images/img-4.png">
+				<div>
+					<h4>[News item title 2]</h4>
 					<p>
-						[Placeholder] Short update on a milestone, publication, or event. Add the date and a one- or two-line summary.
+						[Placeholder] Short update on a milestone, presentation, publication, or event — what happened,
+						where, and who was involved. Add the date.
 					</p>
 				</div>
+			</div>
 
-				<div class="service-box">
-					<img src="images/img-5.png">
-					<h3>[News item 3]</h3>
+			<div class="news-entry">
+				<img src="images/img-5.png">
+				<div>
+					<h4>[News item title 3]</h4>
 					<p>
-						[Placeholder] Short update on a milestone, publication, or event. Add the date and a one- or two-line summary.
+						[Placeholder] Short update on a milestone, presentation, publication, or event — what happened,
+						where, and who was involved. Add the date.
 					</p>
 				</div>
 			</div>
 		</div>
+		<hr class="about-line">
 	</div>
 
 	<!-- Team Section -->
 
-	<div class="full-container">
-		<div class="portfolio" id="team">
-			<div class="container">
-				<div class="portfolio-shadow-box">
-					<div class="portfolio-box team-box">
-						<img src="images/work/work-1.jpg">
-						<h4>[Name]</h4>
-						<p>[Role / affiliation]</p>
-					</div>
-					<div class="portfolio-box team-box">
-						<img src="images/work/work-2.jpg">
-						<h4>[Name]</h4>
-						<p>[Role / affiliation]</p>
-					</div>
-					<div class="portfolio-box team-box">
-						<img src="images/work/work-3.jpg">
-						<h4>[Name]</h4>
-						<p>[Role / affiliation]</p>
-					</div>
-					<div class="portfolio-box team-box">
-						<img src="images/work/work-4.jpg">
-						<h4>[Name]</h4>
-						<p>[Role / affiliation]</p>
-					</div>
+	<div class="container" id="team">
+		<h3 style="text-align:center;">Team</h3>
+		<hr>
+
+		<div class="team-group">
+			<h4>Principal Investigator</h4>
+			<div class="team-grid">
+				<div class="team-card">
+					<img src="images/work/work-1.jpg">
+					<h5><a href="#">[Name]</a></h5>
+					<p>[Affiliation]</p>
 				</div>
 			</div>
 		</div>
+
+		<div class="team-group">
+			<h4>Researchers</h4>
+			<div class="team-grid">
+				<div class="team-card">
+					<img src="images/work/work-2.jpg">
+					<h5><a href="#">[Name]</a></h5>
+					<p>[Role / affiliation]</p>
+				</div>
+				<div class="team-card">
+					<img src="images/work/work-3.jpg">
+					<h5><a href="#">[Name]</a></h5>
+					<p>[Role / affiliation]</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="team-group">
+			<h4>Interns</h4>
+			<div class="team-grid">
+				<div class="team-card">
+					<img src="images/work/work-4.jpg">
+					<h5><a href="#">[Name]</a></h5>
+					<p>[Role / affiliation]</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="team-group">
+			<h4>Project Advisory Board</h4>
+			<div class="team-grid">
+				<div class="team-card">
+					<img src="images/work/work-1.jpg">
+					<h5><a href="#">[Name]</a></h5>
+					<p>[Affiliation]</p>
+				</div>
+				<div class="team-card">
+					<img src="images/work/work-2.jpg">
+					<h5><a href="#">[Name]</a></h5>
+					<p>[Affiliation]</p>
+				</div>
+			</div>
+		</div>
+
+		<hr class="about-line">
 	</div>
 
 	<!-- Publications Section -->
 
 	<div class="container" id="publications">
-		<div class="about">
-			<div class="about-text" style="width: 100%;">
-				<h3>Publications</h3>
-				<hr>
-				<ul class="publication-list">
-					<li>
-						<span class="pub-title">[Publication title 1]</span>
-						<span class="pub-meta">[Authors — Venue, Year]</span>
-					</li>
-					<li>
-						<span class="pub-title">[Publication title 2]</span>
-						<span class="pub-meta">[Authors — Venue, Year]</span>
-					</li>
-					<li>
-						<span class="pub-title">[Publication title 3]</span>
-						<span class="pub-meta">[Authors — Venue, Year]</span>
-					</li>
-				</ul>
-			</div>
+		<div class="publications-wrap">
+			<h3 style="text-align:center;">Publications</h3>
+			<hr>
+
+			<h4>[Year]</h4>
+			<ul class="publication-list">
+				<li>
+					<span class="pub-title">[Publication title 1]</span>
+					<span class="pub-meta">[Authors — Venue, Year]</span>
+				</li>
+				<li>
+					<span class="pub-title">[Publication title 2]</span>
+					<span class="pub-meta">[Authors — Venue, Year]</span>
+				</li>
+			</ul>
+
+			<h4>[Earlier year]</h4>
+			<ul class="publication-list">
+				<li>
+					<span class="pub-title">[Publication title 3]</span>
+					<span class="pub-meta">[Authors — Venue, Year]</span>
+				</li>
+			</ul>
 		</div>
 		<hr class="about-line">
 	</div>
@@ -268,14 +469,14 @@ accessible" for BLV users
 	<!-- Contact Section -->
 
 	<div class="container" id="contact">
-		<div class="about">
-			<div class="about-text">
-				<h3>Contact</h3>
-				<hr>
-				<p>
-					[Placeholder] Replace with your real contact details — email, a contact form, or social/lab links.
-				</p>
-			</div>
+		<div class="about-full">
+			<h3>Contact</h3>
+			<hr>
+			<ul class="contact-list">
+				<li>E-mail: <a href="mailto:contact@example.org">[project-email@example.org]</a></li>
+				<li>Twitter / X: <a href="#">@[handle]</a></li>
+				<li>Address: [Names, lab, street address, postal code, city, country]</li>
+			</ul>
 		</div>
 		<hr class="about-line">
 	</div>
@@ -285,39 +486,22 @@ accessible" for BLV users
 	<div class="full-container">
 		<div class="footer">
 			<div class="container">
-				<div class="footer-widget">
-					<ul>
-						<li class="heading">Footer Widget 1</li>
-						<li>List Item</li>
-						<li>List Item</li>
-						<li>List Item</li>
-						<li>List Item</li>
-					</ul>
-					<ul>
-						<li class="heading">Footer Widget 2</li>
-						<li>List Item</li>
-						<li>List Item</li>
-						<li>List Item</li>
-						<li>List Item</li>
-					</ul>
-					<ul>
-						<li class="heading">Footer Widget 3</li>
-						<li>List Item</li>
-						<li>List Item</li>
-						<li>List Item</li>
-						<li>List Item</li>
-					</ul>
+				<div class="partner-logos">
+					<a href="#"><img src="images/client/4.png" alt="[Funder 1]"></a>
+					<a href="#"><img src="images/client/2.png" alt="[Partner 1]"></a>
+					<a href="#"><img src="images/client/3.png" alt="[Partner 2]"></a>
+					<a href="#"><img src="images/client/5.png" alt="[Partner 3]"></a>
 				</div>
 			</div>
 			<footer>
 				<div class="container">
-					<p>Copyright 2026 | Al Right Reserved</p>
+					<p>SAFARI Project | Copyright 2026 | All Rights Reserved</p>
 				</div>
 			</footer>
 		</div>
 	</div>
 
-	
+
 </body>
 
 </html>
