@@ -63,7 +63,7 @@ body{
 .welcome h1{
 	font-size: 30px;
 	text-transform: uppercase;
-	color: #05c46b;
+	color: #015494;
 	/*text-shadow: 0 0 2px #05c46b;*/
 	letter-spacing: 1px;
 	margin-bottom: 15px;
@@ -76,7 +76,7 @@ body{
 }
 .welcome hr{
 	margin: 15px 0;
-	background-color: #05c46b;
+	background-color: #015494;
 	width: 80%;
 	height: 4px;
 	border-radius: 100%;
@@ -187,8 +187,8 @@ body{
 	top: 10px;
 	left: 0px;
 	background-color: transparent;
-	border-top: 5px solid #05c46b;
-	border-bottom: 5px solid #05c46b;
+	border-top: 5px solid #015494;
+	border-bottom: 5px solid #015494;
 	transition: width 0.5s;
 	opacity: 0;
 }
@@ -211,7 +211,7 @@ body{
 	letter-spacing: 1.2px;
 	line-height: 1.2;
 	text-transform: uppercase;
-	color: #05c46b;
+	color: #015494;
 }
 .service-box p{
 	color: #485460;
@@ -229,10 +229,10 @@ body{
 .about-text h3{
 	margin-bottom: 10px;
 	text-transform: uppercase;
-	color: #05c46b;
+	color: #015494;
 }
 .about-text hr{
-	background-color: #05c46b;
+	background-color: #015494;
 	width: 20%;
 	height: 3px;
 	border-radius: 100%;
@@ -340,7 +340,7 @@ hr.about-line{
 }
 .testi-text h3{
 	text-transform: uppercase;
-	color: #05c46b;
+	color: #015494;
 	letter-spacing: 1.2px;
 	margin-bottom: 10px;
 }
@@ -439,7 +439,7 @@ hr.about-line{
 }
 footer{
 	color: #fff;
-	background-color: #009650;
+	background-color: #015494;
 	position: absolute;
 	bottom: 0;
 	left: 0;
