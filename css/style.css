@@ -62,9 +62,9 @@ body{
 	justify-content: space-between;
 	gap: 3rem;
 	width: 100%;
-	max-width: 1200px;
+	max-width: 1500px;
 	margin: 0 auto;
-	padding: 60px 20px;
+	padding: 80px 80px;
 	clear: both;
 }
 
@@ -106,14 +106,14 @@ body{
 
 /* ---- Welcome image ---- */
 .about-img{
-	flex: 0 0 45%;        /* image column = 45% of the wrapper */
+	flex: 0 0 30%;        /* image column = 45% of the wrapper */
 	max-width: 45%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 .about-img img{
-	width: 100%;          /* fills the 45% column */
+	width: 80%;          /* fills the 45% column */
 	height: auto;         /* keeps aspect ratio */
 	display: block;
 	object-fit: contain;
