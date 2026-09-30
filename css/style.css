@@ -514,10 +514,15 @@ footer{
 	text-transform: uppercase;
 }
 
-/* Latest News: image floats, text wraps around it */
-.news-entry {
-  display: block;            /* cancels the flex/grid side-by-side layout */
-  overflow: auto;            /* contains the float; flow-root also works */
+/* Latest News entry: heading on top, image floats, text wraps around it */
+.news-feed .news-entry {
+  display: block !important;   /* overrides any old flex/grid layout */
+  overflow: hidden;            /* contains the float so the next <hr> doesn't wrap */
+}
+
+.news-entry h4 {
+  text-align: left;
+  margin: 0 0 1rem 0;
 }
 
 .news-entry img {
@@ -525,21 +530,28 @@ footer{
   width: 38%;
   max-width: 400px;
   height: auto;
-  margin: 0.3rem 1.5rem 1rem 0;
+  margin: 0.25rem 1.75rem 1rem 0;
+  border-radius: 6px;          /* optional */
 }
 
-/* Keep the text div from becoming its own column */
-.news-entry > div {
-  display: block;
-  overflow: visible;         /* overflow:hidden here would stop the wrapping */
-}
-
-/* Justified text */
 .news-entry p {
   text-align: justify;
   text-justify: inter-word;
   hyphens: auto;
   -webkit-hyphens: auto;
+  margin: 0 0 1rem 0;
+  line-height: 1.6;
+}
+
+/* Phones: image goes on top, full width */
+@media (max-width: 640px) {
+  .news-entry img {
+    float: none;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 1rem 0;
+  }
 }
 
 /* ---- Responsive: stack welcome and image on small screens ---- */
