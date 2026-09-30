@@ -536,11 +536,11 @@ footer{
 
 .news-entry img {
   float: right;
-  width: 45%;
+  width: 100%;
   max-width: none;             /* removes the 400px limit */
   height: auto;
-  margin: 0.25rem 0 1rem 1.75rem;
-  border-radius: 6px;          /* optional */
+  margin: 0 0 1rem 0;
+  border-radius: 1px;          /* optional */
 }
 
 .news-entry p {
@@ -550,28 +550,6 @@ footer{
   -webkit-hyphens: auto;
   margin: 0 0 1rem 0;
   line-height: 1.6;
-}
-
-/* Phones: image on top, full width */
-@media (max-width: 640px) {
-  .news-entry img {
-    float: none;
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    margin: 0 0 1rem 0;
-  }
-}
-
-/* Phones: image goes on top, full width */
-@media (max-width: 640px) {
-  .news-entry img {
-    float: none;
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    margin: 0 0 1rem 0;
-  }
 }
 
 /* ---- Responsive: stack welcome and image on small screens ---- */
