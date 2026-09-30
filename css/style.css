@@ -18,14 +18,14 @@ body{
 }
 .showcase{
 	width: 100%;
-	min-height: 100vh;      /* changed from height: 100vh so content can grow */
+	min-height: auto;       /* height follows content; no empty space below the welcome block */
 	background: url(../images/img-1.jpg);
 	background-repeat: no-repeat;
 	background-position: top right;
 	background-size: auto;
 	position: relative;
 	/* overflow: hidden;      removed so the image isn't clipped */
-	padding-bottom: 60px;
+	padding-bottom: 20px;
 }
 .navbar{
 	padding: 10px 0;
@@ -62,15 +62,17 @@ body{
 	justify-content: space-between;
 	gap: 3rem;
 	width: 100%;
-	max-width: 1500px;
+	max-width: 100%;
 	margin: 0 auto;
-	padding: 80px 80px;
+	padding: 30px 0;      /* reduced top/bottom space (was 80px) */
+	box-sizing: border-box;
 	clear: both;
 }
 
 /* ---- Welcome text block (no longer absolute) ---- */
 .welcome{
 	flex: 1 1 55%;        /* text block takes remaining space */
+	min-width: 0;
 	position: static;
 	width: auto;
 	text-align: left;
@@ -106,14 +108,15 @@ body{
 
 /* ---- Welcome image ---- */
 .about-img{
-	flex: 0 0 30%;        /* image column = 45% of the wrapper */
+	flex: 0 1 45%;        /* image column: max. 45% of the welcome block */
 	max-width: 45%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 .about-img img{
-	width: 80%;          /* fills the 45% column */
+	width: 100%;          /* fills the column, never wider than 45% */
+	max-width: 100%;
 	height: auto;         /* keeps aspect ratio */
 	display: block;
 	object-fit: contain;
@@ -121,7 +124,8 @@ body{
 }
 
 .button{
-	background: url(../images/img-1-1.png);
+	background: #015494 url(../images/img-1-1.png);   /* fallback colour: image file is missing */
+	border-radius: 6px;
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
@@ -484,8 +488,12 @@ footer{
 	.welcome hr{
 		margin: 15px auto;
 	}
+	.about-img{
+		flex: 0 1 auto;
+		max-width: 80%;      /* stacked layout: image may use more width */
+	}
 	.about-img img{
 		height: auto;
-		width: 80%;
+		width: 100%;
 	}
 }
