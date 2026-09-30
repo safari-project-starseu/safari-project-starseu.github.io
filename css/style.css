@@ -154,7 +154,7 @@ body{
 }
 .news-entry h4{
 	text-align: left;
-	margin: 0 0 1rem 0;
+	margin: 0 0 1.75rem 0;   /* was 1rem; raise it for more space */
 }
 .news-entry img{
 	float: right;
