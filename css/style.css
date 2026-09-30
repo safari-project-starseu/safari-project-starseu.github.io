@@ -173,7 +173,7 @@ body{
 }
 
 .about-full p {
-  text-align: justify;
+  text-align: justify !important;
   text-justify: inter-word;
   hyphens: auto;
   -webkit-hyphens: auto;
