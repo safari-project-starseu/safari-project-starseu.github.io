@@ -2,6 +2,33 @@
 
 <html lang="en">
 
+	<style>
+	  #news .news-entry { display: flow-root !important; overflow: visible !important; }
+	
+	  #news .news-entry img {
+	    float: right !important;
+	    width: 45% !important;
+	    max-width: 45% !important;
+	    height: auto !important;
+	    max-height: none !important;
+	    aspect-ratio: auto !important;
+	    object-fit: contain !important;   /* never crops */
+	    margin: 0.25rem 0 1rem 1.75rem !important;
+	  }
+	
+	  #news .news-entry p { text-align: justify; hyphens: auto; }
+	
+	  @media (max-width: 768px) {
+	    #news .news-entry img {
+	      float: none !important;
+	      width: 100% !important;
+	      max-width: 100% !important;
+	      margin: 0 0 1rem 0 !important;
+	    }
+	  }
+	</style>
+
+	
  	<head>
  		<!-- Meta Tags -->
 		<meta charset="UTF-8">
