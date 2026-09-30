@@ -25,7 +25,7 @@ body{
 	background-size: auto;
 	position: relative;
 	/* overflow: hidden;      removed so the image isn't clipped */
-	padding-bottom: 20px;
+	padding-bottom: 10px;
 }
 .navbar{
 	padding: 10px 0;
@@ -58,20 +58,21 @@ body{
 /* ---- Welcome + image side-by-side wrapper ---- */
 .welcome-wrap{
 	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	gap: 3rem;
+	flex-direction: column;   /* image sits below the welcome text */
+	align-items: flex-start;
+	gap: 20px;
 	width: 100%;
 	max-width: 100%;
 	margin: 0 auto;
-	padding: 30px 0;      /* reduced top/bottom space (was 80px) */
+	padding: 10px 0 0;    /* minimal space above/below the welcome block */
 	box-sizing: border-box;
 	clear: both;
 }
 
 /* ---- Welcome text block (no longer absolute) ---- */
 .welcome{
-	flex: 1 1 55%;        /* text block takes remaining space */
+	flex: 0 0 auto;
+	width: 100%;
 	min-width: 0;
 	position: static;
 	width: auto;
@@ -108,10 +109,11 @@ body{
 
 /* ---- Welcome image ---- */
 .about-img{
-	flex: 0 1 45%;        /* image column: max. 45% of the welcome block */
+	flex: 0 0 auto;
+	width: 45%;           /* image: max. 45% of the welcome block */
 	max-width: 45%;
 	display: flex;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
 }
 .about-img img{
