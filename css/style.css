@@ -171,6 +171,39 @@ body{
 	line-height: 44px;
 	text-transform: uppercase;
 }
+
+/* Team: two rows (PI + Postdoc, then Advisory Board) */
+.team-row {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 40px 60px;
+	margin: 24px 0 36px;
+}
+.team-member {
+	width: 220px;
+	text-align: center;
+}
+.team-member img {
+	width: 150px;
+	height: auto;
+	display: block;
+	margin: 0 auto 12px;
+	border-radius: 8px;
+}
+.team-member p {
+	margin: 4px 0;
+	line-height: 1.4;
+}
+.team-role {
+	font-weight: bold;
+	color: #015494;
+}
+.affiliation-name {
+	font-size: 0.85em;
+	color: #485460;
+}
+
 .client{
 	box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.3);
 	padding: 30px;
