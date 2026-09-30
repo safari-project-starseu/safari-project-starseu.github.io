@@ -172,6 +172,15 @@ body{
 	text-transform: uppercase;
 }
 
+.about-full p {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  line-height: 1.6;
+  margin: 0 0 1rem 0;
+}
+
 /* Team: two rows (PI + Postdoc, then Advisory Board) */
 .team-row {
 	display: flex;
@@ -526,12 +535,11 @@ footer{
 }
 
 .news-entry img {
-  float: right;                /* image on the right */
-  width: 80%;
-  max-width: 400px;
+  float: right;
+  width: 95%;
+  max-width: 1000px;
   height: auto;
-  margin: 0.25rem 0 1rem 1.75rem;   /* top right bottom left: gap is on the left, toward the text */
-  border-radius: 6px;          /* optional */
+  margin: 0.25rem 0 1rem 1.75rem;
 }
 
 .news-entry p {
