@@ -1,3 +1,6 @@
+/* ==========================================================
+   Base
+   ========================================================== */
 *{
 	padding: 0;
 	margin: 0;
@@ -20,15 +23,18 @@ body{
 .container .container{
 	width: 100%;           /* nested containers keep the same width */
 }
+
+/* ==========================================================
+   Header / navigation
+   ========================================================== */
 .showcase{
 	width: 100%;
-	min-height: auto;       /* height follows content; no empty space below the welcome block */
+	min-height: auto;
 	background: url(../images/img-1.jpg);
 	background-repeat: no-repeat;
 	background-position: top right;
 	background-size: auto;
 	position: relative;
-	/* overflow: hidden;      removed so the image isn't clipped */
 	padding-bottom: 10px;
 }
 .navbar{
@@ -59,24 +65,24 @@ body{
 	border-bottom: 2px solid #373737;
 }
 
-/* ---- Welcome + image side-by-side wrapper ---- */
+/* ==========================================================
+   Welcome block (text left, image right)
+   ========================================================== */
 .welcome-wrap{
 	display: flex;
-	flex-direction: row;      /* text left, image right */
+	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
 	gap: 30px;
 	width: 100%;
 	max-width: 100%;
 	margin: 0 auto;
-	padding: 10px 0;      /* minimal space above/below the welcome block */
+	padding: 10px 0;
 	box-sizing: border-box;
 	clear: both;
 }
-
-/* ---- Welcome text block (no longer absolute) ---- */
 .welcome{
-	flex: 1 1 55%;        /* text block: remaining ~55% */
+	flex: 1 1 55%;
 	min-width: 0;
 	position: static;
 	width: auto;
@@ -101,7 +107,7 @@ body{
 	width: 80%;
 	height: 4px;
 	border-radius: 100%;
-	border:none;
+	border: none;
 }
 .welcome p{
 	margin: 20px auto;
@@ -110,193 +116,110 @@ body{
 	color: #485460;
 	text-align: justify;
 }
-
-/* ---- Welcome image ---- */
 .about-img{
-	flex: 0 0 45%;        /* image: 45% of the welcome block */
+	flex: 0 0 45%;
 	max-width: 45%;
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
 }
 .about-img img{
-	width: 100%;          /* fills the column, never wider than 45% */
+	width: 100%;
 	max-width: 100%;
-	height: auto;         /* keeps aspect ratio */
+	height: auto;
 	display: block;
 	object-fit: contain;
 	border-radius: 8px;
 }
 
-.button{
-	background: #015494 url(../images/img-1-1.png);   /* fallback colour: image file is missing */
-	border-radius: 6px;
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
-	height: 52px;
-	transform: scale(1);
-	transition: transform 0.5s;
-	display: inline-block;
+/* ==========================================================
+   About SAFARI (justified text)
+   ========================================================== */
+.about-full p{
+	text-align: justify !important;
+	text-justify: inter-word;
+	hyphens: auto;
+	-webkit-hyphens: auto;
+	line-height: 1.6;
+	margin: 0 0 1rem 0;
 }
-.button::before{
-	content: "";
-	position: absolute;
-	width: 120px;
-	height: 5px;
-	bottom: 0;
-	left: 50%;
-	transform: translate(-50%);
-	background-color: rgba(0,0,0,0.1);
+
+/* ==========================================================
+   Latest News: heading on top, image floats right,
+   text wraps around it and stays justified
+   ========================================================== */
+.news-feed .news-entry{
+	display: block;
+	overflow: hidden;              /* keeps the float inside the entry */
+}
+.news-entry h4{
+	text-align: left;
+	margin: 0 0 1rem 0;
+}
+.news-entry img{
+	float: right;
+	width: 45%;                    /* image = 45% of the news block */
+	max-width: none;
+	height: auto;
+	margin: 0.25rem 0 1rem 1.75rem; /* gap on the left, toward the text */
+	border-radius: 1px;
+}
+.news-entry p{
+	text-align: justify;
+	text-justify: inter-word;
+	hyphens: auto;
+	-webkit-hyphens: auto;
+	margin: 0 0 1rem 0;
+	line-height: 1.6;
+}
+hr.about-line{
+	background-color: rgba(0, 0, 0, 0.1);
+	width: 40%;
+	height: 4px;
 	border-radius: 100%;
-	filter: blur(2px);
-	z-index: -1;
-	transition: opacity 0.5s;
-	margin: 0 auto;
+	border: none;
+	filter: blur(1px);
+	margin: 0 auto 20px;
 	opacity: 0.5;
 }
-.button:hover::before{
-	opacity: 0;
-}
-.button:hover{
-	transform: scale(1.2);
-}
-.button a{
-	font-size: 14px;
-	font-weight: bold;
-	padding: 15px 18px;
-	letter-spacing: 0.8px;
-	text-decoration: none;
-	color: #fff;
-	line-height: 44px;
-	text-transform: uppercase;
-}
 
-.about-full p {
-  text-align: justify !important;
-  text-justify: inter-word;
-  hyphens: auto;
-  -webkit-hyphens: auto;
-  line-height: 1.6;
-  margin: 0 0 1rem 0;
-}
-
-/* Team: two rows (PI + Postdoc, then Advisory Board) */
-.team-row {
+/* ==========================================================
+   Team
+   ========================================================== */
+.team-row{
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 	gap: 40px 60px;
 	margin: 24px 0 36px;
 }
-.team-member {
+.team-member{
 	width: 220px;
 	text-align: center;
 }
-.team-member img {
+.team-member img{
 	width: 150px;
 	height: auto;
 	display: block;
 	margin: 0 auto 12px;
 	border-radius: 8px;
 }
-.team-member p {
+.team-member p{
 	margin: 4px 0;
 	line-height: 1.4;
 }
-.team-role {
+.team-role{
 	font-weight: bold;
 	color: #015494;
 }
-.affiliation-name {
+.affiliation-name{
 	font-size: 0.85em;
 	color: #485460;
 }
 
-.client{
-	box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.3);
-	padding: 30px;
-	text-align: center;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
-	margin-bottom: 40px;
-}
-.client-img{
-	width: 120px;
-	object-fit: contain;
-	padding: 5px 10px;
-}
-.client-img img{
-	width: 100%;
-}
-.services{
-	width: 100%;
-	background: url(../images/img-2.png);
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
-	padding-top: 40px;
-	padding-bottom: 80px;
-	margin-bottom: 40px;
-}
-.services .container{
-	height: 500px;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	align-content: center;
-}
-.service-box{
-	width: 250px;
-	height: auto;
-	background-color: #fff;
-	box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.3);
-	padding: 30px 20px;
-	position: relative;
-	transform: scale(1);
-	transition: transform 0.5s;
-	cursor: pointer;
-}
-.service-box::before{
-	content: "";
-	width: 10px;
-	height: 90%;
-	position: absolute;
-	top: 10px;
-	left: 0px;
-	background-color: transparent;
-	border-top: 5px solid #015494;
-	border-bottom: 5px solid #015494;
-	transition: width 0.5s;
-	opacity: 0;
-}
-.service-box:hover{
-	transform: scale(0.8);
-}
-.service-box:hover::before{
-	width: 100%;
-	opacity: 1;
-}
-.service-box img{
-	width: 40px;
-	margin-bottom: 10px;
-}
-.service-box h3{
-	font-size: 16px;
-	margin-top: 5px;
-	margin-bottom: 20px;
-	letter-spacing: 1.2px;
-	line-height: 1.2;
-	text-transform: uppercase;
-	color: #015494;
-}
-.service-box p{
-	color: #485460;
-	letter-spacing: 1px;
-	line-height: 1.2;
-}
+/* ==========================================================
+   Publications (kept for the Publications section)
+   ========================================================== */
 .about{
 	display: flex;
 	padding-top: 40px;
@@ -315,7 +238,7 @@ body{
 	width: 20%;
 	height: 3px;
 	border-radius: 100%;
-	border:none;
+	border: none;
 }
 .about-text p{
 	width: 90%;
@@ -326,129 +249,10 @@ body{
 	margin-bottom: 10px;
 	text-align: justify;
 }
-hr.about-line{
-	background-color: rgba(0, 0, 0, 0.1);
-	width: 40%;
-	height: 4px;
-	border-radius: 100%;
-	border:none;
-	filter: blur(1px);
-	margin: 0 auto 20px;
-	opacity: 0.5;
-}
-.portfolio{
-	width: 100%;
-	height: 500px;
-	background: url(../images/img-7.png);
-	background-repeat: no-repeat;
-	background-position: left;
-	background-size: auto;
-	padding-top: 40px;
-	padding-bottom: 40px;
-	display: flex;
-	align-items: center;
-	margin-bottom: 40px;
-}
-.portfolio-shadow-box{
-	width: 500px;
-	height: 360px;
-	background-color: #fff;
-	box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.3);
-	float: right;
-	padding: 30px;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-around;
-	align-items: center;
-}
-.portfolio-box{
-	width: 230px;
-	max-height: 160px;
-	border: 1px solid #eee;
-	padding: 5px;
-	display: flex;
-	align-items: center;
-	position: relative;
-}
-.portfolio-box::before{
-	content: "";
-	width: 96%;
-	height: 94%;
-	position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	border: 5px solid transparent;
-	transition: border-top 0.5s;
-}
-.portfolio-box:hover::before{
-	animation: animate 0.3s infinite;
-	z-index: 0;
-}
 
-@keyframes animate {
-	0%{
-		border-color: #00b09b;
-		border-color: -webkit-linear-gradient(to right, #96c93d, #00b09b);
-		border-color: linear-gradient(to right, #96c93d, #00b09b);
-	}
-	50%{
-		border-color: #96c93d;
-		border-color: -webkit-linear-gradient(to right, #00b09b, #96c93d);
-		border-color: linear-gradient(to right, #00b09b, #96c93d);
-	}
-	100%{
-		border-color: #00b09b;
-		border-color: -webkit-linear-gradient(to right, #96c93d, #00b09b);
-		border-color: linear-gradient(to right, #96c93d, #00b09b);
-	}
-}
-.portfolio-box img{
-	width: 100%;
-	max-height: 180px;
-	object-fit: cover;
-}
-.testimonial{
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 10px 20px;
-	box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
-	margin: 80px auto;
-}
-.testi-text h3{
-	text-transform: uppercase;
-	color: #015494;
-	letter-spacing: 1.2px;
-	margin-bottom: 10px;
-}
-.testi-text p{
-	color: #485460;
-	letter-spacing: 1px;
-	line-height: 1.2;
-}
-.testi-img{
-	width: 180px;
-	height: 180px;
-	display: flex;
-	align-items: center;
-	position: relative;
-}
-.testi-img img{
-	width: 100%;
-}
-.circle{
-	width: 111px;
-	height: 110px;
-	position: absolute;
-	background: #fff url(../images/man.png) no-repeat;
-	background-size: contain;
-	background-position: center;
-	box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
-	border-radius: 50%;
-	left: calc(50% - 55px);
-}
+/* ==========================================================
+   Affiliation logos
+   ========================================================== */
 .affiliations-logos{
 	display: flex;
 	flex-wrap: wrap;
@@ -474,6 +278,10 @@ hr.about-line{
 .affiliations-logos a:hover img{
 	opacity: 0.75;
 }
+
+/* ==========================================================
+   Footer
+   ========================================================== */
 .footer{
 	width: 100%;
 	height: 500px;
@@ -523,36 +331,9 @@ footer{
 	text-transform: uppercase;
 }
 
-/* Latest News entry: heading on top, image floats, text wraps around it */
-.news-feed .news-entry {
-  display: block !important;
-  overflow: hidden;            /* keeps the float inside the entry */
-}
-
-.news-entry h4 {
-  text-align: left;
-  margin: 0 0 1rem 0;
-}
-
-.news-entry img {
-  float: right;
-  width: 100%;
-  max-width: none;             /* removes the 400px limit */
-  height: auto;
-  margin: 0 0 1rem 0;
-  border-radius: 1px;          /* optional */
-}
-
-.news-entry p {
-  text-align: justify;
-  text-justify: inter-word;
-  hyphens: auto;
-  -webkit-hyphens: auto;
-  margin: 0 0 1rem 0;
-  line-height: 1.6;
-}
-
-/* ---- Responsive: stack welcome and image on small screens ---- */
+/* ==========================================================
+   Responsive (keep this block last)
+   ========================================================== */
 @media (max-width: 768px){
 	.welcome-wrap{
 		flex-direction: column;
@@ -567,18 +348,18 @@ footer{
 	}
 	.about-img{
 		flex: 0 1 auto;
-		max-width: 80%;      /* stacked layout: image may use more width */
+		max-width: 80%;
 	}
 	.about-img img{
 		height: auto;
 		width: 100%;
 	}
-	.news-entry img {
-    float: none;
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    margin: 0 0 1rem 0;
-  }
-}
+	/* news image: full width on top of the text */
+	.news-entry img{
+		float: none;
+		display: block;
+		width: 100%;
+		max-width: 100%;
+		margin: 0 0 1rem 0;
+	}
 }
