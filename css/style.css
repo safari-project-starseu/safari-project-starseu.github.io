@@ -13,8 +13,12 @@ body{
 	width: 100%;
 }
 .container{
-	width: 960px;
+	width: 80%;            /* content area with balanced side margins */
+	max-width: 1200px;     /* avoid overly long lines on very large screens */
 	margin: 0 auto;
+}
+.container .container{
+	width: 100%;           /* nested containers keep the same width */
 }
 .showcase{
 	width: 100%;
