@@ -516,8 +516,8 @@ footer{
 
 /* Latest News entry: heading on top, image floats, text wraps around it */
 .news-feed .news-entry {
-  display: block !important;   /* overrides any old flex/grid layout */
-  overflow: hidden;            /* contains the float so the next <hr> doesn't wrap */
+  display: block !important;
+  overflow: hidden;            /* keeps the float inside the entry */
 }
 
 .news-entry h4 {
@@ -526,11 +526,11 @@ footer{
 }
 
 .news-entry img {
-  float: left;
+  float: right;                /* image on the right */
   width: 38%;
   max-width: 400px;
   height: auto;
-  margin: 0.25rem 1.75rem 1rem 0;
+  margin: 0.25rem 0 1rem 1.75rem;   /* top right bottom left: gap is on the left, toward the text */
   border-radius: 6px;          /* optional */
 }
 
@@ -541,6 +541,17 @@ footer{
   -webkit-hyphens: auto;
   margin: 0 0 1rem 0;
   line-height: 1.6;
+}
+
+/* Phones: image on top, full width */
+@media (max-width: 640px) {
+  .news-entry img {
+    float: none;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 1rem 0;
+  }
 }
 
 /* Phones: image goes on top, full width */
